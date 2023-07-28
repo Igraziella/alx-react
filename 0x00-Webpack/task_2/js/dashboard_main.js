@@ -13,8 +13,14 @@ import _ from 'lodash';
 let count = 0;
 const updateCounter = () => {
     count++;
-    $('#count').text(`${count} clicks on the button`);
-};
+    $( "#count" ).text(`${count} clicks on the button` );
+}
 
-const debouncedUpdateCounter = ("updateCounter", "_.debounce", "500");
-$('#clickButton').on('click', debouncedUpdateCounter);
+const $button = $("<button>Click here to get started</button>").on(
+    "click",
+    _.debounce( updateCounter, 500, { leading: true, trailing: false })
+  );
+  
+  $('body').append("<p>Dashboard data for the students</p>");
+  $('body').append($button);
+  $('body').append("<p id='count'></p>");
