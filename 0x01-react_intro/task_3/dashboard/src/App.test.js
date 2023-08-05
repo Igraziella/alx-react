@@ -1,26 +1,28 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { mount } from 'enzyme';
 import App from './App';
 
-test('App renders without crashing', () => {
-  const { container } = render(<App />);
-  expect(container).toBeInTheDocument();
-});
+describe('App component', () => {
+  it('renders without crashing', () => {
+    const wrapper = mount(<App />);
+    expect(wrapper.exists()).toBe(true);
+  });
 
-test('App renders a div with the class App-header', () => {
-  const { getByTestId } = render(<App />);
-  const appHeader = getByTestId('app-header');
-  expect(appHeader).toBeInTheDocument();
-});
+  it('renders a div with the class App-header', () => {
+    const wrapper = mount(<App />);
+    const appHeader = wrapper.find('[data-testid="app-header"]');
+    expect(appHeader.exists()).toBe(true);
+  });
 
-test('App renders a div with the class App-body', () => {
-  const { getByTestId } = render(<App />);
-  const appBody = getByTestId('app-body');
-  expect(appBody).toBeInTheDocument();
-});
+  it('renders a div with the class App-body', () => {
+    const wrapper = mount(<App />);
+    const appBody = wrapper.find('[data-testid="app-body"]');
+    expect(appBody.exists()).toBe(true);
+  });
 
-test('App renders a div with the class App-footer', () => {
-  const { getByTestId } = render(<App />);
-  const appFooter = getByTestId('app-footer');
-  expect(appFooter).toBeInTheDocument();
+  it('renders a div with the class App-footer', () => {
+    const wrapper = mount(<App />);
+    const appFooter = wrapper.find('[data-testid="app-footer"]');
+    expect(appFooter.exists()).toBe(true);
+  });
 });
