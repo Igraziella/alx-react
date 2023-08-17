@@ -1,4 +1,4 @@
-export default functiom accessImmutableObject(object, array) {
+export default function accessImmutableObject(object, array) {
   if (object === undefined || array.length === 0) {
     return undefined;
   }
