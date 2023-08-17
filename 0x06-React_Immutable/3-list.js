@@ -5,4 +5,4 @@ export default function getListObject(array) {
 }
 
 export default function addElementToList(list, element) {
-  return List.append('element');
+  return List.push(element);
